@@ -331,7 +331,9 @@ export default function PropertyDetails() {
                 </div>
               </div>
             </div>
-            <div className="col-md-3">dfsdfgds</div>
+            <div className="col-md-3">
+              
+            </div>
           </div>
         </div>
       </section>
