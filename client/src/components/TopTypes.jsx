@@ -81,7 +81,7 @@ export default function TopTypes() {
                 </Link>
                  
                   <p className=" mx-4 my-2 position-absolute bottom-0 end-0 text-primary-white">
-                    {type.propertiesCount} {t("property")}
+                    {type.propertiesCount||0} {t("property")}
                   </p>
               </div>
             )
