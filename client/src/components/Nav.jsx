@@ -35,7 +35,7 @@ export default function Nav() {
           <img className="img-fluid nav-bar-logo" src="/logo.png" alt="Logo" />
         </Link>
         <div className="d-flex">
-          <button onClick={toggleLanguage} className="btn lang-switcher ">
+          <button onClick={toggleLanguage} className="btn d-lg-none lang-switcher ">
             <span>{i18n.language.toUpperCase()}</span> <Globe size={20} />
           </button>
           <button
