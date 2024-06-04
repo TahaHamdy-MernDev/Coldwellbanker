@@ -1,0 +1,79 @@
+const typeModel = require("../models/TypeModel");
+const asyncHandler = require("../utils/asyncHandler");
+const dbService = require("../utils/dbService");
+const { uploadImages, updateAndSet, deleteImages } = require("../utils/upload");
+
+exports.createType = asyncHandler(async (req, res) => {
+  await uploadImages("images", req);
+  const newType = await dbService.create(typeModel, { ...req.body });
+  return res.success({ data: newType });
+});
+exports.updateType = asyncHandler(async (req, res) => {
+  const query = { _id: req.params.typeId };
+  const type = await dbService.findOne(typeModel, query);
+  if (!type) {
+    return res.recordNotFound({ message: "type not found..." });
+  }
+  await updateAndSet(type, "images", req);
+  const updatedType = await dbService.updateOne(typeModel, query, req.body);
+  return res.success({ data: updatedType });
+});
+exports.topTypes = asyncHandler(async (req, res) => {
+    const top6Types = await typeModel.aggregate([
+        {
+          $lookup: {
+            from: "Property",
+            localField: "properties",
+            foreignField: "_id",    
+            as: "properties",
+          },
+        },
+        {
+          $addFields: {
+            propertiesCount: { $size: "$properties" },
+          },
+        },
+        {
+          $sort: {
+            propertiesCount: -1,
+          },
+        },
+        {
+          $limit: 6,
+          },
+          {
+            $project: {
+              name: 1,
+              propertiesCount: 1,
+              images:1
+            },
+          },
+      ]);
+      
+
+  return res.success({ data: top6Types });
+});
+
+exports.getAllTypes = asyncHandler(async (req, res) => {
+  const types = await dbService.findMany(typeModel);
+  return res.success({ data: types });
+});
+exports.getType = asyncHandler(async (req, res) => {
+  const query = { _id: req.params.typeId };
+  const type = await dbService.findOne(typeModel, query);
+  if (!type) {
+    return res.recordNotFound({ message: "type not found..." });
+  }
+  return res.success({ data: type });
+});
+
+exports.deleteType = asyncHandler(async (req, res) => {
+  const query = { _id: req.params.typeId };
+  const type = await dbService.findOne(typeModel, query);
+  if (!type) {
+    return res.recordNotFound({ message: "type not found..." });
+  }
+  await deleteImages(type);
+  const deletedType = await dbService.deleteOne(typeModel, query);
+  return res.success({ data: deletedType });
+});
