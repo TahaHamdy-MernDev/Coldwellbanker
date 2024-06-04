@@ -170,7 +170,7 @@ export default function PropertyDetails() {
                   </div>
                   <div className=" col-md-3">
                     <div className="d-flex flex-column gap-2 mt-4 p-2">
-                      <h3 className=" fs-5"> Two Room Condo in Manhattan</h3>
+                      <h3 className=" fs-5">{property?.name[i18n.language]}</h3>
                       <h4 className=" fs-6">Want to find out more?</h4>
                       <form action="" className=" p-3">
                         <input
