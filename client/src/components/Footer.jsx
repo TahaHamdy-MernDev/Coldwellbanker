@@ -108,7 +108,7 @@ export default function Footer() {
                   to={`/properties-type/${type._id}`}
                 >
                   <p className=" mb-1">
-                    {type.name[i18n.language]}({type.propertiesCount}){' '}
+                    {type.name[i18n.language]}({type.propertiesCount||0}){' '}
                   </p>
                 </Link>
               ))}
