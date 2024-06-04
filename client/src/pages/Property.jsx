@@ -118,6 +118,7 @@ export default function PropertyDetails() {
   const whatsappLink = `https://wa.me/${property?.contactUs}?text=${encodedBaseText}${encodedUrl}`
 
   const developerImage = `${import.meta.env.VITE_IMAGE_ORIGIN}/${property?.developer[0].images[0].url}`
+  let areaText=`   Im interested in [ ${property?.name[i18n.language]} ]`
   return (
     <>
       <section className="container-xxl section-padding">
@@ -186,7 +187,7 @@ export default function PropertyDetails() {
                           type="text"
                           name="firstName"
                           id="firstName"
-                          placeholder="Your Name"
+                          placeholder="Your Phone"
                         />
                         <input
                           className="form-control mb-3"
@@ -194,7 +195,7 @@ export default function PropertyDetails() {
                           type="text"
                           name="firstName"
                           id="firstName"
-                          placeholder="Your Name"
+                          placeholder="Your Email"
                         />
                         <textarea
                           id="agent_comment"
@@ -204,7 +205,7 @@ export default function PropertyDetails() {
                           rows="6"
                           aria-required="true"
                         >
-                          Im interested in [ Two Room Condo in Manhattan ]
+                       {areaText}
                         </textarea>
                         <button
                           type="submit"
@@ -332,7 +333,7 @@ export default function PropertyDetails() {
               </div>
             </div>
             <div className="col-md-3">
-              
+
             </div>
           </div>
         </div>
