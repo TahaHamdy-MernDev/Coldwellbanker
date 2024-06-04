@@ -28,6 +28,10 @@
     "propertiesAvailable": "Properties Available",
     "priceStartFrom": "Prices Start From"
   },
+  "propertyDetails":{
+    "about":"About"
+
+  },
   "callUs": "Call Us",
   "egp": "EGP",
   "type": {

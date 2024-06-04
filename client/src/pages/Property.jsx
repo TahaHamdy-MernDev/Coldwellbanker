@@ -119,6 +119,7 @@ export default function PropertyDetails() {
 
   const developerImage = `${import.meta.env.VITE_IMAGE_ORIGIN}/${property?.developer[0].images[0].url}`
   let areaText=`   Im interested in [ ${property?.name[i18n.language]} ]`
+  const propertyDescription = property?.description[i18n.language]
   return (
     <>
       <section className="container-xxl section-padding">
@@ -330,6 +331,13 @@ export default function PropertyDetails() {
                     <p> {property?.max_unit_area || 0} m2</p>
                   </div>
                 </div>
+              </div>
+              <div className="mb-4">
+              <h2 className="fs-5 mb-3">{t('propertyDetails.about')} {property?.name[i18n.language]}</h2>
+              <div
+                className="description"
+                dangerouslySetInnerHTML={{ __html: propertyDescription }}
+              />
               </div>
             </div>
             <div className="col-md-3">

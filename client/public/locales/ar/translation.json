@@ -28,6 +28,9 @@
     "propertiesAvailable": " وحدات متاحة",
     "priceStartFrom":"السعر يبدء من"
   },
+  "propertyDetails":{
+    "about":"عن"
+      },
   "callUs":"اتصل بنا",
   "egp":"جم",
   "type": {

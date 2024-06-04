@@ -73,7 +73,7 @@ export default function Developer() {
                 {t('developers.about')} {developerName}{' '}
               </h3>
               <div
-                className="developer-description"
+                className="description"
                 dangerouslySetInnerHTML={{ __html: developerDescription }}
               />
             </div>
