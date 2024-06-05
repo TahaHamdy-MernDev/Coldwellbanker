@@ -5,4 +5,5 @@ router.use('/developer' , require('./developerRoutes'))
 router.use('/compound' , require('./compoundRoutes'))
 router.use('/type' , require('./typeRoutes'))
 router.use('/property' , require('./propertyRoutes'))
+router.use('/launch' , require('./launchRoutes'))
 module.exports = router;
