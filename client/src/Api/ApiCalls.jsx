@@ -36,3 +36,11 @@ export const FetchProperty = async(id)=>{
    const response= await  Api.get(`/property/get/${id}`)
    return response.data.data
 }
+export const FetchLatestLunches = async()=>{
+   const response= await  Api.get(`/launch/get-latest`)
+   return response.data.data
+}
+export const FetchLaunchDetails = async(id)=>{
+   const response= await  Api.get(`/launch/get/${id}`)
+   return response.data.data
+}

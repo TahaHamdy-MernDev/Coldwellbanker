@@ -20,6 +20,22 @@
     "Terms": "Terms of Service",
     "Cookie": "Cookie Policy"
   },
+  "titles": {
+    "newLaunches": "New Launches",
+    "topCompounds": "Top Compounds",
+    "topAreas": "Top Area",
+    "recommended": "Recommended",
+    "showAll": "Show All",
+    "resultsAvailable": "Results Available"
+  },
+  "launches": {
+    "details": "Launch Details",
+    "viewMap":"Location"
+  },
+  "contact": {
+    "callUs": "Call Us",
+    "whatsapp": "Whatsapp"
+  },
   "developers": {
     "about": "About",
     "title": "COLDWELL BANKER DEVELOPERS",
@@ -28,9 +44,8 @@
     "propertiesAvailable": "Properties Available",
     "priceStartFrom": "Prices Start From"
   },
-  "propertyDetails":{
-    "about":"About"
-
+  "propertyDetails": {
+    "about": "About"
   },
   "callUs": "Call Us",
   "egp": "EGP",
@@ -38,7 +53,7 @@
     "developer": "Developer"
   },
   "car": "Car",
-  "propertyType":"Property Type",
+  "propertyType": "Property Type",
   "bedRooms": "BedRooms",
   "bathRooms": "bathRooms",
   "deliveryIn": "Delivery In",

@@ -1,6 +1,6 @@
 import { useRoutes } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
-import { Developer, Developers, Home } from "../pages";
+import { Developer, Developers, Home, LunchDetails } from "../pages";
 import PropertyDetails from "../pages/Property";
 
 const ProjectRoutes = () => {
@@ -13,7 +13,8 @@ const ProjectRoutes = () => {
           { index: true, element: <Home /> },
           { path:"/developers", element: <Developers /> },
           { path:"/developer-details/:id", element: <Developer /> },
-          { path:"property-details/:id", element: <PropertyDetails /> },
+          { path:"/property-details/:id", element: <PropertyDetails /> },
+          { path:"/launch-details/:id", element: <LunchDetails /> },
         //   { path:"/contact-us", element: <ContactUs /> },
         //   { path:"/about-us", element: <AboutUs /> },
         ],

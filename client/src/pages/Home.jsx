@@ -7,13 +7,14 @@ import {
   ForRent,
   TopTypes,
   ContactForm,
+  HomeLunch,
 } from '../components'
 
 export default function Home() {
   return (
     <>
       <Hero />
-
+<HomeLunch/>
       <LatestProperties />
       <TopTypes />
       <TopAreas />

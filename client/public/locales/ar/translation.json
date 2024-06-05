@@ -21,32 +21,48 @@
     "Cookie": "سياسة الكوكيز"
   },
   "developers": {
-    "about":"عن",
+    "about": "عن",
     "title": "المطورون العقاريون بكولد ويل بانكر ",
     "text": "قائمة بجميع المطورين المسجلين",
     "developerSearch": "ابحث عن مطور",
     "propertiesAvailable": " وحدات متاحة",
-    "priceStartFrom":"السعر يبدء من"
+    "priceStartFrom": "السعر يبدء من"
   },
-  "propertyDetails":{
-    "about":"عن"
+  "titles": {
+    "newLaunches": "المشاريع الجديدة",
+    "topCompounds": "الكمبوندات الأكثر بحثًا",
+    "topAreas": "أهم المناطق",
+    "recommended": "نرشح لك",
+    "showAll": "عرض الكل",
+    "resultsAvailable": "نتائج"
+  },
+  "contact":{
+    "callUs":"اتصل بنا",
+    "whatsapp":"واتساب"
       },
-  "callUs":"اتصل بنا",
-  "egp":"جم",
+  "launches": {
+    "details": "وصف المشروع",
+    "viewMap":"المكان على الخريطة"
+  },
+  "propertyDetails": {
+    "about": "عن"
+  },
+  "callUs": "اتصل بنا",
+  "egp": "جم",
   "type": {
     "developer": "مطور"
   },
-  "car":"سياره",
-  "bedRooms":"غرف نوم",
-  "bathRooms":"حمامات",
-  "deliveryIn":"التسليم في",
-  "compound":"كمبوند",
-  "saleType":"نوع البيع",
-  "finishing":"نوع التشطيب",
-  "print":"طباعه",
-  "whatsApp":"واتساب",
-  "sale":"للبيع",
-  "rent":" للإيجار",
+  "car": "سياره",
+  "bedRooms": "غرف نوم",
+  "bathRooms": "حمامات",
+  "deliveryIn": "التسليم في",
+  "compound": "كمبوند",
+  "saleType": "نوع البيع",
+  "finishing": "نوع التشطيب",
+  "print": "طباعه",
+  "whatsApp": "واتساب",
+  "sale": "للبيع",
+  "rent": " للإيجار",
   "listsByType": "أنواع الوحدات",
   "contactUs": "اتصل بنا",
   "meetingText": "يرغب خبراؤنا ومطورونا في المساهمة بخبراتهم ورؤاهم معك",
