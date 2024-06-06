@@ -693,14 +693,36 @@
 .whatsapp-btn svg {
   color: var(--primary-white);
 }
-.map-container{
+.map-container {
   height: 600px;
 }
-.mapboxgl-ctrl-attrib-inner{
+.mapboxgl-ctrl-attrib-inner {
   display: none;
 }
-@media  (max-width:670px) {
-  .map-container{
-  height: 350px
+
+.card-style {
+  padding: 30px;
+  box-shadow: 0px 5px 40px rgb(20 12 84 / 4%);
+  background: var(--primary-white) !important;
+  border-radius: 0.375rem;
+}
+@media (max-width: 670px) {
+  .map-container {
+    height: 350px;
+  }
+  .card-style {
+    padding: 15px;
+  }
+}
+.developer-projects {
+  display: grid;
+  grid-template-columns: 1fr 50%;
+  gap: 16px;
+}
+@media screen and (max-width: 990px) {
+  .developer-projects {
+    display: flex;
+    flex-flow: column;
+    max-height: 100%;
   }
 }

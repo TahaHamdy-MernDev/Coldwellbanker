@@ -42,7 +42,9 @@
       },
   "launches": {
     "details": "وصف المشروع",
-    "viewMap":"المكان على الخريطة"
+    "viewMap":"المكان على الخريطة",
+    "launchDescription":"تفاصيل المشروع",
+    "developerProjects":"مشاريع المطور"
   },
   "propertyDetails": {
     "about": "عن"

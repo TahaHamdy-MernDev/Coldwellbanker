@@ -30,7 +30,9 @@
   },
   "launches": {
     "details": "Launch Details",
-    "viewMap":"Location"
+    "viewMap":"Location",
+    "launchDescription":"Launch Description",
+    "developerProjects":"Developer Projects"
   },
   "contact": {
     "callUs": "Call Us",

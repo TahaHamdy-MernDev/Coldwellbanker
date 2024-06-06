@@ -44,3 +44,7 @@ export const FetchLaunchDetails = async(id)=>{
    const response= await  Api.get(`/launch/get/${id}`)
    return response.data.data
 }
+export const FetchDeveloperLaunch = async(developerId)=>{
+   const response= await  Api.get(`/launch/developer-launch/${developerId}`)
+   return response.data.data
+}

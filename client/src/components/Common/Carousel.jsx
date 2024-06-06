@@ -43,15 +43,14 @@ export default function Carousel({ items = [], Component, settings }) {
     ...settings,
   }
 
-  const isRTL = i18n.dir === 'rtl';
 
   return (
     <>
       {items.length > 0 ? (
         <div className="carousel-container">
-          <Slider ref={c => setSlider(c)} {...customSettings} dir="rtl">
+          <Slider ref={c => setSlider(c)} {...customSettings}>
             {items.map((item, index) => (
-              <div dir='rtl' key={index} className="carousel-slide px-1 px-lg-2">
+              <div key={index} className="carousel-slide px-1 px-lg-2">
                 <Component item={item} index={index} />
               </div>
             ))}

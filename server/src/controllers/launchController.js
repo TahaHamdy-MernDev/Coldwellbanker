@@ -38,3 +38,17 @@ exports.getLunch = asyncHandler(async (req, res) => {
   }
   return res.success({ data: lunch });
 });
+
+exports.getDeveloperLaunches = asyncHandler(async (req, res) => {
+  console.log("dddddddddddddddddddddd");
+  const developer = await dbService.findOne(developerModel, {
+    _id: req.params.developerId,
+  });
+  if (!developer) {
+    return res.recordNotFound({ message: "developer not found..." });
+  }
+  const launch = await dbService.findMany(launchModel, {
+    developer: developer._id,
+  });
+  return res.success({ data: launch });
+});
