@@ -47,7 +47,9 @@
     "priceStartFrom": "Prices Start From"
   },
   "propertyDetails": {
-    "about": "About"
+    "about": "About",
+    "pricesStartFrom":"Prices Start From", 
+    "maxPrice":"Max Price"
   },
   "callUs": "Call Us",
   "egp": "EGP",

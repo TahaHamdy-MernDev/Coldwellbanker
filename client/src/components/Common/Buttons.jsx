@@ -14,10 +14,14 @@ export const ContactUs = ({ number }) => {
     </a>
   )
 }
-export const Whatsapp = ({ number }) => {
+export const Whatsapp = ({ number ,developerName,itemName}) => {
   const { t, i18n } = useTranslation()
+  const baseText = `Hello ${developerName}! I'm interested in your property ${itemName}. Link: `
+  const encodedBaseText = encodeURIComponent(baseText)
+  const encodedUrl = encodeURIComponent(window.location.href)
+  const whatsappLink = `https://wa.me/${number}?text=${encodedBaseText}${encodedUrl}`
   return (
-    <a href={`wa.me:${number}`}>
+    <a href={whatsappLink}  target="_blank" rel="noopener noreferrer">
       <button
         style={{
           backgroundColor: 'rgb(76, 217, 100)',

@@ -67,6 +67,7 @@ const propertySchema = new mongoose.Schema(
         },
       },
     ],
+    reference_No:Number,
     name: multiLanguage,
     addressLocality: multiLanguage,
     min_price: {
@@ -135,6 +136,7 @@ const propertySchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+
     contactUs:Number,
     max_unit_area:Number,
     amenities: [amenitySchema],

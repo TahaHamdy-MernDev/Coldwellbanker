@@ -4,8 +4,7 @@ import { FetchDeveloperLaunch, FetchLaunchDetails } from '../Api/ApiCalls'
 import DataLoader from '../components/Common/DataLoader'
 import { useTranslation } from 'react-i18next'
 import { ContactUs, Whatsapp } from '../components/Common/Buttons'
-import MapContainer from '../components/Map/MapContainer'
-import Map from '../components/Map/Map'
+
 import MapComponent from '../components/Map/MapContainer'
 
 export default function LunchDetails() {
@@ -107,7 +106,17 @@ export default function LunchDetails() {
           <div className="row  card-style">
             <h2 className="title">{t('launches.viewMap')}</h2>
             <div className="map-container">
-              <MapComponent lat={launch?.location.latitude} lng={launch?.location.longitude} width="100%" height="100%" />
+              <MapComponent
+                locations={[
+                  {
+                    lng: launch?.location.longitude,
+                    lat: launch?.location.latitude,
+                    name: launch?.launchName[i18n.language],
+                  }
+                ]}
+                width="100%"
+                height="100%"
+              />
             </div>
           </div>
         </div>
@@ -131,20 +140,23 @@ export default function LunchDetails() {
               {developerLaunch?.map((devLaunch, index) => {
                 const launchImage = `${import.meta.env.VITE_IMAGE_ORIGIN}/${devLaunch?.thumbnail[0].url}`
                 return (
-                  <div
+                  <Link
                     key={index}
                     className=" d-flex justify-content-start align-items-center gap-1"
+                    to={`/launch-details/${devLaunch._id}`}
                   >
                     <img
                       src={launchImage}
                       className=" object-fit-cover rounded-2"
                       alt=""
-                      style={{height:"50px", width:"50px"}}
+                      style={{ height: '50px', width: '50px' }}
                       width="60"
                       height="60"
                     />
-                    <p className=' mb-0'>{devLaunch.launchName[i18n.language]}</p>
-                  </div>
+                    <p className=" mb-0">
+                      {devLaunch.launchName[i18n.language]}
+                    </p>
+                  </Link>
                 )
               })}
             </div>

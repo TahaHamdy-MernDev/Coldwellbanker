@@ -29,17 +29,15 @@ a {
   color: var(--primary-blue) !important;
   text-decoration: none;
   transition: all 0.5s ease !important;
+cursor: pointer !important;
 }
 
 a:hover {
   color: var(--secondary-blue) !important;
 }
-div {
-  cursor: default;
-}
+
 small,
 p {
-  cursor: default;
   color: var(--secondary-gray);
 }
 strong {

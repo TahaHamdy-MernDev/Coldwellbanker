@@ -18,6 +18,10 @@ import { useTranslation } from 'react-i18next'
 import { FaPhone, FaPhoneAlt, FaPrint, FaWhatsapp } from 'react-icons/fa'
 import { formatNumber } from '../assets/common'
 import { BathRoom, BedRoom, FT, GarageAttached } from '../assets/icons'
+import Gallery from '../components/Common/Gallery'
+import { ContactUs, Whatsapp } from '../components/Common/Buttons'
+import ContactForm from '../components/ContactForm'
+import Form from '../components/Common/Form'
 
 export default function PropertyDetails() {
   const { t, i18n } = useTranslation()
@@ -118,113 +122,20 @@ export default function PropertyDetails() {
   const whatsappLink = `https://wa.me/${property?.contactUs}?text=${encodedBaseText}${encodedUrl}`
 
   const developerImage = `${import.meta.env.VITE_IMAGE_ORIGIN}/${property?.developer[0].images[0].url}`
-  let areaText=`   Im interested in [ ${property?.name[i18n.language]} ]`
   const propertyDescription = property?.description[i18n.language]
   return (
     <>
-      <section className="container-xxl section-padding">
-        <div className="container">
-          <div className="image-gallery">
-            {property?.images.map((image, index) => {
-              let itemImage = `${import.meta.env.VITE_IMAGE_ORIGIN}/${image.url}`
-              return (
-                <div
-                  className={`image-container ${
-                    index === activeIndex ? 'active' : ''
-                  }`}
-                  key={index}
-                  onClick={() => openLightbox(index)}
-                  onMouseEnter={() => handleMouseEnter(index)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <img
-                    loading="lazy"
-                    src={itemImage}
-                    alt={`Image ${index + 1}`}
-                    className="gallery-image"
-                  />
-                </div>
-              )
-            })}
-          </div>
-          {isOpen && (
-            <div className="lightbox_property_wrapper">
-              <div className="lightbox_property_wrapper_level2">
-                <div className="lighbox-image-close">
-                  {' '}
-                  <X onClick={closeLightbox} />{' '}
-                </div>
-                <div className="lightbox_property_content row">
-                  <div className="lightbox_property_slider col-md-10">
-                    <Slider {...settings}>
-                      {images.map((image, index) => (
-                        <div key={index}>
-                          <img
-                            loading="lazy"
-                            src={image}
-                            className="property-slider"
-                            alt={`Image ${index + 1}`}
-                          />
-                        </div>
-                      ))}
-                    </Slider>
-                  </div>
-                  <div className=" col-md-3">
-                    <div className="d-flex flex-column gap-2 mt-4 p-2">
-                      <h3 className=" fs-5">{property?.name[i18n.language]}</h3>
-                      <h4 className=" fs-6">Want to find out more?</h4>
-                      <form action="" className=" p-3">
-                        <input
-                          className="form-control mb-3"
-                          required
-                          type="text"
-                          name="firstName"
-                          id="firstName"
-                          placeholder="Your Name"
-                        />
-                        <input
-                          className="form-control mb-3"
-                          required
-                          type="text"
-                          name="firstName"
-                          id="firstName"
-                          placeholder="Your Phone"
-                        />
-                        <input
-                          className="form-control mb-3"
-                          required
-                          type="text"
-                          name="firstName"
-                          id="firstName"
-                          placeholder="Your Email"
-                        />
-                        <textarea
-                          id="agent_comment"
-                          name="comment"
-                          className="form-control mb-3"
-                          cols="45"
-                          rows="6"
-                          aria-required="true"
-                        >
-                       {areaText}
-                        </textarea>
-                        <button
-                          type="submit"
-                          className="btn button-primary w-100"
-                        >
-                          Send Email
-                        </button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="lighbox_overlay" onClick={closeLightbox}></div>
-            </div>
-          )}
+      <Gallery property={property} />
+      <section className=" position-relative container-xxl section-padding">
+        <div className="mt-2 w-100 position-absolute d-none top-0 d-md-flex justify-content-end align-items-center gap-2 px-4">
+          <button
+            style={{ cursor: 'pointer' }}
+            className=" btn font-inter bg-white rounded-2 p-2 shadow-sm"
+          >
+            <FaPrint /> {t('print')}
+          </button>
+          <ShareDropdown />
         </div>
-      </section>
-      <section className=" container-xxl section-padding py-1">
         <div className="row">
           <div className="col-md-12 d-flex flex-column flex-md-row mx-auto">
             <div className="col-md-2 d-flex justify-content-md-center align-items-center ">
@@ -244,23 +155,16 @@ export default function PropertyDetails() {
               className="col-md-10 d-flex flex-column mt-2 "
               style={{ marginRight: '15px' }}
             >
-              <div className=" d-flex">
+              {/* <div className=" d-flex">
                 <span className="tag tag-blue text-white">
                   {t(property?.forRent ? 'rent' : 'sale')}
                 </span>
-              </div>
+              </div> */}
               <div className=" col-md-12 d-flex flex-column ">
                 <div className=" d-flex flex-column flex-md-row">
                   <h1 className="property-title fs-3 mt-2 col-md-10 justify-content-center align-items-center">
                     {property?.name[i18n.language]}
                   </h1>
-                  <div className=" col-md-2 d-flex  gap-2 mt-2 justify-content-start justify-content-md-end">
-                    <h3 className=" text-primary-blue d-flex">
-                      {' '}
-                      <span>{formatNumber(property?.max_price)}</span>{' '}
-                      <span className=" mx-2"> {t('egp')}</span>{' '}
-                    </h3>
-                  </div>
                 </div>
 
                 <div className=" d-flex gap-1 justify-content-start">
@@ -270,27 +174,37 @@ export default function PropertyDetails() {
                     {property?.addressLocality[i18n.language]}
                   </p>
                 </div>
+                <div className="d-flex justify-content-between flex-column flex-md-row">
+                  <div>
+                    <p style={{ fontSize: '12px' }} className="mb-0">
+                      {' '}
+                      {t('propertyDetails.pricesStartFrom')}
+                    </p>
+                    <span className=" d-flex justify-content-start gap-0 gap-md-2 flex-column flex-md-row">
+                      <h3>
+                        {formatNumber(property?.min_price)} {t('egp')}
+                      </h3>
+                      <span className=" d-flex justify-content-start align-items-start flex-column flex-md-row align-items-md-center ">
+                        <p style={{ fontSize: '12px' }} className=" mb-0">
+                          {t('propertyDetails.maxPrice')}:
+                        </p>{' '}
+                        <h3>
+                          {formatNumber(property?.max_price)} {t('egp')}
+                        </h3>
+                      </span>
+                    </span>
+                  </div>
+                  <div className=" mt-2 d-flex justify-content-start flex-wrap align-items-center justify-content-md-end gap-2">
+                    <ContactUs number={property?.contactUs} />
+                    <Whatsapp
+                      number={property?.contactUs}
+                      itemName={property?.name[i18n.language]}
+                      developerName={property?.developer[0].name[i18n.language]}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className=" mt-2 d-flex justify-content-start flex-wrap align-items-center justify-content-md-end gap-2">
-            <ShareDropdown />
-            <button
-              style={{ cursor: 'pointer' }}
-              className=" btn font-inter bg-white rounded-2 p-2 shadow-sm"
-            >
-              <FaPrint /> {t('print')}
-            </button>
-
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-success text-primary-white border-0 shadow-sm"
-              style={{ backgroundColor: 'rgb(76, 217, 100)' }}
-            >
-              <FaWhatsapp color="#fff" /> {t('whatsApp')}
-            </a>
           </div>
         </div>
       </section>
@@ -298,8 +212,7 @@ export default function PropertyDetails() {
         <div className="container">
           <div className="row gy-4 gx-5">
             <div className="col-md-9">
-              <div className="mb-4">
-                <h2 className="fs-5 mb-3"> OverView</h2>
+              <div className="card-style">
                 <div className="d-flex flex-column flex-md-row justify-content-start gap-4">
                   <div className=" d-flex flex-column gap-1 justify-content-center align-items-start align-items-md-start">
                     <p className=" mb-1 fs-6">{t('propertyType')}</p>
@@ -333,15 +246,19 @@ export default function PropertyDetails() {
                 </div>
               </div>
               <div className="mb-4">
-              <h2 className="fs-5 mb-3">{t('propertyDetails.about')} {property?.name[i18n.language]}</h2>
-              <div
-                className="description"
-                dangerouslySetInnerHTML={{ __html: propertyDescription }}
-              />
+                <h2 className="fs-5 mb-3">
+                  {t('propertyDetails.about')} {property?.name[i18n.language]}
+                </h2>
+                <div
+                  className="description"
+                  dangerouslySetInnerHTML={{ __html: propertyDescription }}
+                />
               </div>
             </div>
             <div className="col-md-3">
-
+              <div className=' card-style p-2 position-sticky' style={{top:"160px"}}>
+                <Form/>
+              </div>
             </div>
           </div>
         </div>

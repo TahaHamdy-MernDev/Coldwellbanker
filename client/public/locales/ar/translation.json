@@ -47,7 +47,9 @@
     "developerProjects":"مشاريع المطور"
   },
   "propertyDetails": {
-    "about": "عن"
+    "about": "عن",
+    "pricesStartFrom":"السعر يبدء من",
+    "maxPrice":"إلى"
   },
   "callUs": "اتصل بنا",
   "egp": "جم",

@@ -726,3 +726,11 @@
     max-height: 100%;
   }
 }
+
+.mapboxgl-popup-content{
+  border-radius: 8px !important;
+  padding: .5rem 1rem !important;
+}
+.mapboxgl-popup-close-button{
+  display: none !important
+}
