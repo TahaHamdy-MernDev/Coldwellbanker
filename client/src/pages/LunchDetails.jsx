@@ -39,6 +39,7 @@ export default function LunchDetails() {
     return txt.value
   }
   const decodedHtml = decodeHtml(launchDetails)
+
   return (
     <React.Fragment>
       <section className=" container-xxl section-padding">
@@ -106,7 +107,7 @@ export default function LunchDetails() {
           <div className="row  card-style">
             <h2 className="title">{t('launches.viewMap')}</h2>
             <div className="map-container">
-              <MapComponent width="100%" height="100%" />
+              <MapComponent lat={launch?.location.latitude} lng={launch?.location.longitude} width="100%" height="100%" />
             </div>
           </div>
         </div>
